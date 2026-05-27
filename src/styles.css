@@ -50,47 +50,47 @@
 
 :root {
   --radius: 0.875rem;
-  --background: oklch(0.985 0.006 230);
-  --foreground: oklch(0.2 0.05 250);
+  --background: oklch(0.985 0.008 80);
+  --foreground: oklch(0.24 0.03 70);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.2 0.05 250);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.2 0.05 250);
-  --primary: oklch(0.22 0.08 245);
-  --primary-foreground: oklch(0.985 0.005 230);
-  --secondary: oklch(0.93 0.025 220);
-  --secondary-foreground: oklch(0.25 0.07 245);
-  --muted: oklch(0.95 0.015 230);
-  --muted-foreground: oklch(0.5 0.04 240);
-  --accent: oklch(0.58 0.15 225);
-  --accent-foreground: oklch(0.18 0.05 250);
+  --primary: oklch(0.3 0.045 55);
+  --primary-foreground: oklch(0.985 0.006 85);
+  --secondary: oklch(0.93 0.02 88);
+  --secondary-foreground: oklch(0.3 0.04 60);
+  --muted: oklch(0.95 0.014 85);
+  --muted-foreground: oklch(0.52 0.025 65);
+  --accent: oklch(0.62 0.12 65);
+  --accent-foreground: oklch(0.2 0.03 60);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.89 0.018 230);
-  --input: oklch(0.92 0.02 230);
-  --ring: oklch(0.55 0.1 220);
+  --border: oklch(0.9 0.012 82);
+  --input: oklch(0.92 0.015 85);
+  --ring: oklch(0.58 0.08 65);
 
-  --brand-deep: oklch(0.13 0.06 250);
-  --brand-navy: oklch(0.22 0.08 245);
-  --brand-teal: oklch(0.48 0.16 240);
-  --brand-cyan: oklch(0.74 0.16 210);
-  --brand-ice: oklch(0.94 0.04 220);
+  --brand-deep: oklch(0.22 0.03 55);
+  --brand-navy: oklch(0.3 0.04 60);
+  --brand-teal: oklch(0.48 0.1 58);
+  --brand-cyan: oklch(0.72 0.11 75);
+  --brand-ice: oklch(0.95 0.02 85);
 
   --gradient-hero: linear-gradient(
     135deg,
-    oklch(0.13 0.06 250) 0%,
-    oklch(0.22 0.08 245) 50%,
-    oklch(0.48 0.16 240) 100%
+      oklch(0.22 0.03 55) 0%,
+      oklch(0.3 0.04 60) 50%,
+      oklch(0.48 0.1 58) 100%
   );
   --gradient-cool: linear-gradient(180deg, var(--brand-ice) 0%, oklch(1 0 0) 100%);
   --gradient-accent: linear-gradient(135deg, var(--brand-teal), var(--brand-cyan));
-  --gradient-radial: radial-gradient(circle at 30% 20%, oklch(0.48 0.16 240 / 0.35), transparent 60%);
+  --gradient-radial: radial-gradient(circle at 30% 20%, oklch(0.48 0.1 58 / 0.35), transparent 60%);
 
   --gradient-brand: var(--gradient-accent);
 
-  --shadow-cool: 0 25px 60px -25px oklch(0.22 0.08 245 / 0.45);
-  --shadow-card: 0 10px 35px -15px oklch(0.22 0.08 245 / 0.2);
-  --shadow-glow: 0 0 80px oklch(0.58 0.15 225 / 0.45);
+  --shadow-cool: 0 25px 60px -25px oklch(0.3 0.04 60 / 0.4);
+  --shadow-card: 0 10px 35px -15px oklch(0.3 0.04 60 / 0.2);
+  --shadow-glow: 0 0 80px oklch(0.62 0.12 65 / 0.4);
   --shadow-cta: var(--shadow-cool);
 
   --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);

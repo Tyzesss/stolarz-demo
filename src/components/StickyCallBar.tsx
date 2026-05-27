@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { MessageSquare, Phone } from "lucide-react";
 
-const PHONE_HREF = "tel:600000000";
-const SMS_HREF = "sms:+48600000000";
+const PHONE_HREF = "tel:+48733200410";
+const SMS_HREF = "sms:+48733200410";
 
 export function StickyCallBar() {
   const [show, setShow] = useState(false);

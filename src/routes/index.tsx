@@ -6,18 +6,21 @@ import {
   MapPin,
   Clock,
   Star,
-  Wrench,
-  Snowflake,
-  Wind,
+  Hammer,
   ShieldCheck,
-  Zap,
   Home,
   Award,
   CheckCircle2,
   Menu,
   X,
+  ChefHat,
+  DoorClosed,
+  Bath,
+  Sofa,
+  Ruler,
+  PencilRuler,
+  Clock3,
 } from "lucide-react";
-import heroImage from "@/assets/hero.png";
 import { MobileCarousel } from "@/components/MobileCarousel";
 import { StickyCallBar } from "@/components/StickyCallBar";
 import {
@@ -41,15 +44,16 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const BRAND = "ClimaLocal";
-const PHONE_DISPLAY = "600 000 000";
-const PHONE_HREF = "tel:600000000";
-const EMAIL = "kontakt@climalocal.pl";
-const EMAIL_HREF = "mailto:kontakt@climalocal.pl";
+const BRAND = "StolCraft";
+const PHONE_DISPLAY = "733 200 410";
+const PHONE_HREF = "tel:+48733200410";
+const EMAIL = "biuro@stolcraft-demo.pl";
+const EMAIL_HREF = "mailto:biuro@stolcraft-demo.pl";
 const CITY = "Wrocław i okolice";
-const ADDRESS = "ul. Przykładowa 12, Wrocław";
-const HOURS = "Pn - Sob: 8:00 - 18:00";
-const MAPS_URL = "https://maps.google.com/?q=Klimatyzacja+Wroclaw";
+const ADDRESS = "ul. Stolarska 12, Wrocław";
+const HOURS = "Pn - Pt: 8:00 - 17:00";
+const MAPS_URL = "https://maps.google.com/?q=stolarz+wroclaw";
+const HERO_IMAGE_URL = "/hero-kitchen-v2.png";
 
 const NAV_LINKS = [
   { href: "#uslugi", label: "Usługi" },
@@ -57,49 +61,85 @@ const NAV_LINKS = [
   { href: "#opinie", label: "Opinie" },
   { href: "#realizacje", label: "Realizacje" },
   { href: "#faq", label: "FAQ" },
-  { href: "#wycena", label: "Wycena" },
+  { href: "#wycena", label: "Konsultacja" },
   { href: "#kontakt", label: "Kontakt" },
 ] as const;
 
 const services = [
-  { icon: Snowflake, title: "Montaż klimatyzacji", desc: "Profesjonalny montaż split i multi-split w domach i mieszkaniach." },
-  { icon: Wrench, title: "Serwis i przeglądy", desc: "Coroczne przeglądy, czyszczenie i ozonowanie urządzeń." },
-  { icon: Wind, title: "Rekuperacja", desc: "Dobór i montaż systemów wentylacji mechanicznej z odzyskiem ciepła." },
-  { icon: Zap, title: "Pompy ciepła", desc: "Dobór i instalacja pomp powietrze-woda dla domów jednorodzinnych." },
-  { icon: Home, title: "Klima do biura", desc: "Systemy klimatyzacji dla lokali usługowych i biur." },
-  { icon: ShieldCheck, title: "Naprawa awaryjna", desc: "Szybka reakcja w przypadku awarii – dojazd nawet tego samego dnia." },
+  {
+    icon: ChefHat,
+    title: "Kuchnie na wymiar",
+    desc: "Projekt i wykonanie zabudowy kuchennej pod konkretny układ i potrzeby domowników.",
+    image: "/services/kuchnia-na-wymiar.png",
+    alt: "Placeholder realizacji kuchni na wymiar",
+  },
+  {
+    icon: DoorClosed,
+    title: "Szafy i garderoby",
+    desc: "Praktyczne systemy przechowywania dopasowane do wnęk i skosów.",
+    image: "/services/szafy-i-garderoby.png",
+    alt: "Placeholder realizacji szafy i garderoby",
+  },
+  {
+    icon: Bath,
+    title: "Meble łazienkowe",
+    desc: "Odporne na wilgoć zabudowy z trwałymi frontami i okuciami.",
+    image: "/services/meble-lazienkowe.png",
+    alt: "Placeholder realizacji mebli łazienkowych",
+  },
+  {
+    icon: Sofa,
+    title: "Zabudowy nietypowe",
+    desc: "Biblioteki, meble RTV, siedziska i zabudowy pod indywidualny projekt.",
+    image: "/services/zabudowy-nietypowe.png",
+    alt: "Placeholder realizacji zabudowy nietypowej",
+  },
+  {
+    icon: Ruler,
+    title: "Pomiar i montaż",
+    desc: "Kompleksowa realizacja od pomiaru, przez produkcję, aż po montaż.",
+    image: "/services/pomiar-i-montaz.png",
+    alt: "Placeholder etapu pomiaru i montażu mebli",
+  },
+  {
+    icon: PencilRuler,
+    title: "Projekt 3D demo",
+    desc: "Wstępna koncepcja i wizualizacja, aby łatwiej podjąć decyzję o realizacji.",
+    image: "/services/projekt-3d.png",
+    alt: "Placeholder projektu 3D mebli na wymiar",
+  },
 ];
 
 const whyUs = [
-  { icon: Zap, title: "Dojazd w 24h", desc: "Szybka reakcja w całym Wrocławiu i okolicach." },
-  { icon: Award, title: "5 lat gwarancji", desc: "Pełna gwarancja na montaż i urządzenia." },
-  { icon: Home, title: "Lokalna firma", desc: "Działamy w regionie od ponad 10 lat." },
-  { icon: CheckCircle2, title: "Darmowa wycena", desc: "Bezpłatny pomiar i wycena na miejscu." },
+  { icon: Clock3, title: "Terminowość", desc: "Jasny harmonogram i regularny kontakt na każdym etapie realizacji." },
+  { icon: ShieldCheck, title: "Trwałe materiały", desc: "Sprawdzone płyty, blaty i okucia od renomowanych producentów." },
+  { icon: MapPin, title: "Lokalna pracownia", desc: "Działamy na terenie Wrocławia i okolic z dojazdem do klienta." },
+  { icon: Ruler, title: "Dokładny pomiar", desc: "Przed wyceną wykonujemy pomiar i doradzamy najlepsze rozwiązania." },
 ];
 
 const reviews = [
-  { name: "Anna K.", text: "Montaż szybki i czysty. Polecam każdemu, kto szuka solidnej firmy we Wrocławiu." },
-  { name: "Marek W.", text: "Bardzo profesjonalna ekipa. Przyjechali na czas, wszystko działa idealnie." },
-  { name: "Justyna P.", text: "Najlepsza cena z 5 ofert i super doradztwo przy wyborze modelu." },
-  { name: "Tomasz L.", text: "Świetny serwis – po roku zrobili przegląd, wszystko jak nowe." },
-  { name: "Karolina M.", text: "Polecam! Konkretni, kulturalni i bardzo szybcy. 5 gwiazdek." },
+  { name: "Anna K.", text: "Kuchnia wyszła dokładnie jak na wizualizacji. Bardzo dobry kontakt i sprawny montaż." },
+  { name: "Marek W.", text: "Szafa do sypialni zrobiona idealnie pod wnękę. Solidne wykonanie i porządek po montażu." },
+  { name: "Justyna P.", text: "Doceniam doradztwo materiałowe i uczciwą wycenę. Efekt końcowy super." },
+  { name: "Tomasz L.", text: "Zabudowa łazienki wykonana estetycznie i terminowo. Polecam współpracę." },
+  { name: "Karolina M.", text: "Pełna profesjonalność od pomiaru do montażu. Meble wyglądają świetnie." },
 ];
 
 const gallery = [
-  { image: "/gallery/mieszkanie-krzyki.jpg", alt: "Montaż klimatyzatora ściennego w salonie mieszkania" },
-  { image: "/gallery/dom-bielany.jpg", alt: "Jednostki zewnętrzne klimatyzacji na elewacji domu" },
-  { image: "/gallery/biuro-centrum.jpg", alt: "Klimatyzator ścienny w biurze" },
-  { image: "/gallery/apartament-stare-miasto.jpg", alt: "Klimatyzator ścienny w apartamencie" },
-  { image: "/gallery/dom-oborniki.jpg", alt: "Jednostka zewnętrzna klimatyzacji na elewacji domu" },
-  { image: "/gallery/lokal-psie-pole.jpg", alt: "Klimatyzator ścienny w lokalu usługowym" },
+  { image: "https://placehold.co/800x480/png?text=Kuchnia+na+wymiar", alt: "Placeholder realizacji kuchni na wymiar" },
+  { image: "https://placehold.co/800x480/png?text=Szafa+wnekowa", alt: "Placeholder realizacji szafy wnekowej" },
+  { image: "https://placehold.co/800x480/png?text=Garderoba", alt: "Placeholder realizacji garderoby" },
+  { image: "https://placehold.co/800x480/png?text=Lazienka", alt: "Placeholder realizacji mebli łazienkowych" },
+  { image: "https://placehold.co/800x480/png?text=Zabudowa+salonu", alt: "Placeholder realizacji zabudowy salonu" },
+  { image: "https://placehold.co/800x480/png?text=Projekt+i+montaz", alt: "Placeholder realizacji od projektu do montażu" },
 ];
 
 const faqs = [
-  { q: "Ile kosztuje montaż klimatyzacji?", a: "Standardowy montaż split 2,5–3,5 kW to koszt od 1800 zł brutto. Cena zależy od długości instalacji i typu urządzenia." },
-  { q: "Jak szybko możecie zamontować klimatyzację?", a: "W sezonie zazwyczaj 3–7 dni od akceptacji wyceny. Poza sezonem nawet w 48h." },
-  { q: "Czy oferujecie darmową wycenę?", a: "Tak. Wycena na miejscu lub zdalnie (na podstawie zdjęć) jest całkowicie bezpłatna i niezobowiązująca." },
-  { q: "Jaką gwarancję dostanę?", a: "5 lat gwarancji na urządzenie (przy corocznym przeglądzie) oraz 2 lata na sam montaż." },
-  { q: "Czy serwisujecie urządzenia kupione gdzie indziej?", a: "Tak, serwisujemy wszystkie popularne marki klimatyzatorów – niezależnie od miejsca zakupu." },
+  { q: "Ile kosztują meble na wymiar?", a: "Cena zależy od wymiarów, materiałów i okuć. Przygotowujemy indywidualną wycenę po pomiarze i rozmowie o potrzebach." },
+  { q: "Jak wygląda proces realizacji?", a: "Zaczynamy od konsultacji i pomiaru, potem przedstawiamy projekt oraz wycenę, a po akceptacji przechodzimy do produkcji i montażu." },
+  { q: "Jaki jest czas realizacji?", a: "Standardowo 3-6 tygodni od zatwierdzenia projektu. Dokładny termin podajemy przy wycenie." },
+  { q: "Czy mogę zamówić same fronty lub modyfikacje?", a: "Tak, realizujemy też mniejsze zlecenia: wymianę frontów, doposażenie szaf i drobne zabudowy." },
+  { q: "Na jakim obszarze działacie?", a: "Realizujemy projekty we Wrocławiu i okolicznych miejscowościach z dojazdem do klienta." },
 ];
 
 function CTAButton({ className = "" }: { className?: string }) {
@@ -148,14 +188,14 @@ function LeadForm({ variant = "light" }: { variant?: "light" | "dark" }) {
           <Link to="/polityka-prywatnosci" className={consentLinkClass}>
             Politykę Prywatności
           </Link>{" "}
-          i wyrażam zgodę na kontakt w sprawie wyceny (RODO).
+          i wyrażam zgodę na kontakt w sprawie konsultacji i wyceny (RODO).
         </span>
       </label>
       <button
         type="submit"
         className="h-12 rounded-full bg-gradient-accent font-semibold text-primary-foreground shadow-cool hover:shadow-glow transition-smooth"
       >
-        Poproś o darmową wycenę
+        Poproś o bezpłatną konsultację
       </button>
     </form>
   );
@@ -164,12 +204,25 @@ function LeadForm({ variant = "light" }: { variant?: "light" | "dark" }) {
 function ServiceCard({ s }: { s: (typeof services)[number] }) {
   const Icon = s.icon;
   return (
-    <div className="h-full rounded-2xl border border-border bg-card p-5 text-center shadow-card transition-spring md:text-left md:hover:-translate-y-1 md:hover:shadow-cool">
-      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-accent text-primary-foreground shadow-glow max-md:mx-auto">
-        <Icon className="h-6 w-6" />
+    <div className="h-full overflow-hidden rounded-2xl border border-border bg-card text-center shadow-card transition-spring md:text-left md:hover:-translate-y-1 md:hover:shadow-cool">
+      <div className="relative h-44 border-b border-border bg-muted/30">
+        <img
+          src={s.image}
+          alt={s.alt}
+          className="h-full w-full object-cover"
+          loading="lazy"
+          decoding="async"
+          width={1200}
+          height={750}
+        />
+        <div className="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-background/90 text-accent shadow-md ring-1 ring-border/60 backdrop-blur-sm">
+          <Icon className="h-5 w-5" />
+        </div>
       </div>
-      <h3 className="text-lg font-semibold text-foreground">{s.title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+      <div className="p-5">
+        <h3 className="text-lg font-semibold text-foreground">{s.title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+      </div>
     </div>
   );
 }
@@ -272,7 +325,7 @@ function SiteHeader() {
           onClick={() => setMenuOpen(false)}
         >
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-accent text-primary-foreground shadow-glow">
-            <Snowflake className="h-5 w-5" />
+            <Hammer className="h-5 w-5" />
           </div>
           <span className="font-bold tracking-tight text-foreground">{BRAND}</span>
         </a>
@@ -346,7 +399,7 @@ function Index() {
       >
         <div
           className="hero-photo"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          style={{ backgroundImage: `url(${HERO_IMAGE_URL})` }}
           role="img"
           aria-label=""
         />
@@ -358,17 +411,17 @@ function Index() {
         <div className="relative z-10 mx-auto max-w-6xl md:grid md:grid-cols-2 md:gap-10 md:items-center">
           <div className="md:text-left">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider backdrop-blur">
-              <CheckCircle2 className="h-3.5 w-3.5" /> Darmowa wycena w 24h
+              <CheckCircle2 className="h-3.5 w-3.5" /> Bezpłatna konsultacja i pomiar
             </span>
             <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-5xl">
-              Montaż i Serwis
+              Projekt i wykonanie
               <br />
-              Klimatyzacji,
+              Mebli na wymiar,
               <br />
               {CITY}
             </h1>
             <p className="mt-3 text-base text-white/80 md:text-lg">
-              Szybki montaż, darmowa wycena w 24h i profesjonalny dobór urządzeń.
+              Projektujemy i wykonujemy meble dopasowane do Twojej przestrzeni, stylu i budżetu.
             </p>
             <div className="mt-5 flex justify-center md:justify-start">
               <CTAButton />
@@ -379,13 +432,13 @@ function Index() {
                   <Star key={i} className="h-4 w-4 fill-brand-cyan text-brand-cyan" />
                 ))}
               </div>
-              <span>4.9 / 5 · 48 opinii Google</span>
+              <span>4.9 / 5 · 48 opinii klientów</span>
             </div>
           </div>
 
           <div className="mt-8 rounded-2xl border border-white/10 bg-card p-5 text-card-foreground shadow-card ring-1 ring-white/10 md:mt-0 max-md:text-center md:text-left">
-            <p className="text-sm font-semibold text-foreground">Oddzwonimy w ciągu godziny</p>
-            <p className="mt-1 text-xs text-muted-foreground">Zostaw numer – darmowa wycena bez zobowiązań.</p>
+            <p className="text-sm font-semibold text-foreground">Oddzwonimy i umówimy pomiar</p>
+            <p className="mt-1 text-xs text-muted-foreground">Zostaw numer - przygotujemy szybką konsultację bez zobowiązań.</p>
             <div className="mt-4">
               <LeadForm />
             </div>
@@ -396,9 +449,9 @@ function Index() {
       {/* SERVICES */}
       <Section
         id="uslugi"
-        eyebrow="Usługi"
+        eyebrow="Oferta"
         title="Nasze usługi"
-        subtitle="Kompleksowa obsługa klimatyzacji od A do Z."
+        subtitle="Projektujemy, produkujemy i montujemy meble na wymiar od A do Z."
       >
         <MobileCarousel items={services} renderItem={(s) => <ServiceCard s={s} />} />
         <div className="hidden md:grid grid-cols-3 gap-5">
@@ -413,7 +466,7 @@ function Index() {
         id="dlaczego-my"
         eyebrow="Zalety"
         title="Dlaczego my"
-        subtitle="Lokalnie, szybko i z gwarancją."
+        subtitle="Rzemiosło, estetyka i funkcjonalność w jednej realizacji."
         dark
       >
         <div className="grid grid-cols-2 gap-2 md:hidden">
@@ -433,7 +486,7 @@ function Index() {
         id="opinie"
         eyebrow="Opinie"
         title="Opinie klientów"
-        subtitle="4.9 / 5 na podstawie 48 opinii w Google Maps."
+        subtitle="4.9 / 5 na podstawie 48 opinii od klientów."
       >
         <div className="mx-auto mb-8 flex max-w-md flex-col items-center gap-2 rounded-2xl border border-border bg-card px-6 py-4 shadow-card sm:flex-row sm:justify-center sm:gap-4">
           <div className="flex items-center gap-1">
@@ -442,7 +495,7 @@ function Index() {
             ))}
           </div>
           <p className="text-center text-sm font-semibold text-foreground sm:text-left">
-            4.9 / 5 · <span className="font-normal text-muted-foreground">48 opinii w Google Maps</span>
+            4.9 / 5 · <span className="font-normal text-muted-foreground">48 opinii klientów</span>
           </p>
         </div>
         <MobileCarousel items={reviews} renderItem={(r) => <ReviewCard r={r} />} />
@@ -458,7 +511,7 @@ function Index() {
         id="realizacje"
         eyebrow="Portfolio"
         title="Nasze realizacje"
-        subtitle="Wybrane montaże w Twojej okolicy."
+        subtitle="Przykładowe realizacje mebli na wymiar - placeholdery demo."
         dark
       >
         <MobileCarousel dark items={gallery} renderItem={(g) => <GalleryCard g={g} />} />
@@ -474,7 +527,7 @@ function Index() {
         id="faq"
         eyebrow="FAQ"
         title="Najczęstsze pytania"
-        subtitle="Wszystko, co warto wiedzieć przed montażem."
+        subtitle="Wszystko, co warto wiedzieć przed rozpoczęciem realizacji."
       >
         <div className="mx-auto max-w-3xl">
           <Accordion type="single" collapsible className="w-full text-left">
@@ -498,12 +551,12 @@ function Index() {
           style={{ background: "var(--gradient-radial)" }}
         />
         <div className="relative mx-auto max-w-3xl text-center text-primary-foreground">
-          <p className="text-xs font-semibold uppercase tracking-widest text-brand-cyan">Darmowa wycena</p>
-          <h2 className="mt-1.5 text-2xl font-bold tracking-tight md:text-4xl">Potrzebujesz klimatyzacji?</h2>
-          <p className="mt-2 text-base text-white/80">Darmowa wycena w 24h.</p>
-          <div className="mx-auto mt-8 max-w-md rounded-2xl border border-white/15 bg-white/10 p-5 shadow-cool backdrop-blur-md max-md:text-center md:text-left max-md:[&_form]:text-left">
-            <p className="text-sm font-semibold text-white">Wolisz oddzwonienie?</p>
-            <p className="mt-1 text-xs text-white/70">Zostaw numer — oddzwonimy w ciągu godziny.</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-brand-cyan">Bezpłatna konsultacja</p>
+          <h2 className="mt-1.5 text-2xl font-bold tracking-tight md:text-4xl">Planujesz meble na wymiar?</h2>
+          <p className="mt-2 text-base text-white/80">Umów pomiar i otrzymaj wstępną wycenę.</p>
+          <div className="relative isolate mx-auto mt-8 max-w-md rounded-2xl border border-white/15 bg-white/10 p-5 text-white shadow-cool max-md:text-center md:text-left max-md:[&_form]:text-left">
+            <p className="text-sm font-semibold text-white">Wolisz kontakt telefoniczny?</p>
+            <p className="mt-1 text-xs text-white/70">Zostaw numer - oddzwonimy i ustalimy szczegóły pomiaru.</p>
             <div className="mt-4">
               <LeadForm variant="dark" />
             </div>
@@ -516,7 +569,7 @@ function Index() {
         id="kontakt"
         eyebrow="Kontakt"
         title="Skontaktuj się z nami"
-        subtitle="Zadzwoń, napisz na e-mail lub odwiedź nas — jesteśmy czynni Pn–Sob 8:00–18:00."
+        subtitle="Zadzwoń, napisz e-mail lub umów pomiar na terenie Wrocławia i okolic."
       >
         <MobileCarousel items={contactCards} renderItem={(c) => <ContactCard c={c} />} />
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -529,7 +582,7 @@ function Index() {
       {/* FOOTER */}
       <footer className="border-t border-white/10 bg-brand-deep px-4 pt-8 pb-24 text-primary-foreground md:pb-8">
         <div className="mx-auto max-w-6xl text-center text-sm text-white/70">
-          <p className="font-bold text-white">{BRAND} - Klimatyzacja i Serwis</p>
+          <p className="font-bold text-white">{BRAND} - Meble na wymiar i stolarstwo</p>
           <p className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
             <a href={PHONE_HREF} className="inline-flex items-center gap-1 transition-smooth hover:text-white">
               <Phone className="h-3.5 w-3.5" /> {PHONE_DISPLAY}

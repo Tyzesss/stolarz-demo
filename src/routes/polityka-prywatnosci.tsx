@@ -1,10 +1,10 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowLeft, Snowflake } from "lucide-react";
+import { ArrowLeft, Hammer } from "lucide-react";
 
 import { SITE_NAME, SITE_TITLE } from "@/lib/site";
 
 const BRAND = SITE_NAME;
-const EMAIL = "kontakt@climalocal.pl";
+const EMAIL = "biuro@stolcraft-demo.pl";
 
 export const Route = createFileRoute("/polityka-prywatnosci")({
   component: PolitykaPrywatnosci,
@@ -26,7 +26,7 @@ function PolitykaPrywatnosci() {
         <div className="mx-auto flex h-16 max-w-3xl items-center justify-between px-4">
           <Link to="/" className="flex items-center gap-2 font-bold text-foreground">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-accent text-primary-foreground shadow-glow">
-              <Snowflake className="h-5 w-5" />
+              <Hammer className="h-5 w-5" />
             </div>
             {BRAND}
           </Link>
@@ -63,7 +63,7 @@ function PolitykaPrywatnosci() {
               Przetwarzamy dane podane w formularzu kontaktowym (imię, numer telefonu) wyłącznie w celu:
             </p>
             <ul className="mt-2 list-inside list-disc space-y-1">
-              <li>kontaktu zwrotnego i przygotowania wyceny usług klimatyzacji,</li>
+              <li>kontaktu zwrotnego i przygotowania wyceny usług stolarskich oraz mebli na wymiar,</li>
               <li>obsługi zapytań oraz realizacji umowy (jeśli dojdzie do jej zawarcia).</li>
             </ul>
           </section>
