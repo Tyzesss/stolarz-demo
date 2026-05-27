@@ -125,14 +125,42 @@ const reviews = [
   { name: "Karolina M.", text: "Pełna profesjonalność od pomiaru do montażu. Meble wyglądają świetnie." },
 ];
 
+const galleryFilters = ["kuchnie", "szafy-i-garderoby", "lazienki", "rtv"] as const;
+type GalleryFilter = (typeof galleryFilters)[number];
+
+const galleryFilterLabels: Record<GalleryFilter, string> = {
+  kuchnie: "Kuchnie",
+  "szafy-i-garderoby": "Szafy i garderoby",
+  lazienki: "Łazienki",
+  rtv: "RTV",
+};
+
 const gallery = [
-  { image: "https://placehold.co/800x480/png?text=Kuchnia+na+wymiar", alt: "Placeholder realizacji kuchni na wymiar" },
-  { image: "https://placehold.co/800x480/png?text=Szafa+wnekowa", alt: "Placeholder realizacji szafy wnekowej" },
-  { image: "https://placehold.co/800x480/png?text=Garderoba", alt: "Placeholder realizacji garderoby" },
-  { image: "https://placehold.co/800x480/png?text=Lazienka", alt: "Placeholder realizacji mebli łazienkowych" },
-  { image: "https://placehold.co/800x480/png?text=Zabudowa+salonu", alt: "Placeholder realizacji zabudowy salonu" },
-  { image: "https://placehold.co/800x480/png?text=Projekt+i+montaz", alt: "Placeholder realizacji od projektu do montażu" },
-];
+  { category: "kuchnie", image: "https://placehold.co/800x480/png?text=Kuchnia+1", alt: "Realizacja kuchni na wymiar 1" },
+  { category: "kuchnie", image: "https://placehold.co/800x480/png?text=Kuchnia+2", alt: "Realizacja kuchni na wymiar 2" },
+  { category: "kuchnie", image: "https://placehold.co/800x480/png?text=Kuchnia+3", alt: "Realizacja kuchni na wymiar 3" },
+  { category: "kuchnie", image: "https://placehold.co/800x480/png?text=Kuchnia+4", alt: "Realizacja kuchni na wymiar 4" },
+  { category: "kuchnie", image: "https://placehold.co/800x480/png?text=Kuchnia+5", alt: "Realizacja kuchni na wymiar 5" },
+  { category: "kuchnie", image: "https://placehold.co/800x480/png?text=Kuchnia+6", alt: "Realizacja kuchni na wymiar 6" },
+  { category: "szafy-i-garderoby", image: "https://placehold.co/800x480/png?text=Szafa+1", alt: "Realizacja szafy lub garderoby 1" },
+  { category: "szafy-i-garderoby", image: "https://placehold.co/800x480/png?text=Szafa+2", alt: "Realizacja szafy lub garderoby 2" },
+  { category: "szafy-i-garderoby", image: "https://placehold.co/800x480/png?text=Szafa+3", alt: "Realizacja szafy lub garderoby 3" },
+  { category: "szafy-i-garderoby", image: "https://placehold.co/800x480/png?text=Garderoba+1", alt: "Realizacja szafy lub garderoby 4" },
+  { category: "szafy-i-garderoby", image: "https://placehold.co/800x480/png?text=Garderoba+2", alt: "Realizacja szafy lub garderoby 5" },
+  { category: "szafy-i-garderoby", image: "https://placehold.co/800x480/png?text=Garderoba+3", alt: "Realizacja szafy lub garderoby 6" },
+  { category: "lazienki", image: "https://placehold.co/800x480/png?text=Lazienka+1", alt: "Realizacja mebli łazienkowych 1" },
+  { category: "lazienki", image: "https://placehold.co/800x480/png?text=Lazienka+2", alt: "Realizacja mebli łazienkowych 2" },
+  { category: "lazienki", image: "https://placehold.co/800x480/png?text=Lazienka+3", alt: "Realizacja mebli łazienkowych 3" },
+  { category: "lazienki", image: "https://placehold.co/800x480/png?text=Lazienka+4", alt: "Realizacja mebli łazienkowych 4" },
+  { category: "lazienki", image: "https://placehold.co/800x480/png?text=Lazienka+5", alt: "Realizacja mebli łazienkowych 5" },
+  { category: "lazienki", image: "https://placehold.co/800x480/png?text=Lazienka+6", alt: "Realizacja mebli łazienkowych 6" },
+  { category: "rtv", image: "https://placehold.co/800x480/png?text=RTV+1", alt: "Realizacja zabudowy RTV 1" },
+  { category: "rtv", image: "https://placehold.co/800x480/png?text=RTV+2", alt: "Realizacja zabudowy RTV 2" },
+  { category: "rtv", image: "https://placehold.co/800x480/png?text=RTV+3", alt: "Realizacja zabudowy RTV 3" },
+  { category: "rtv", image: "https://placehold.co/800x480/png?text=RTV+4", alt: "Realizacja zabudowy RTV 4" },
+  { category: "rtv", image: "https://placehold.co/800x480/png?text=RTV+5", alt: "Realizacja zabudowy RTV 5" },
+  { category: "rtv", image: "https://placehold.co/800x480/png?text=RTV+6", alt: "Realizacja zabudowy RTV 6" },
+] as const;
 
 const faqs = [
   { q: "Ile kosztują meble na wymiar?", a: "Cena zależy od wymiarów, materiałów i okuć. Przygotowujemy indywidualną wycenę po pomiarze i rozmowie o potrzebach." },
@@ -176,6 +204,16 @@ function LeadForm({ variant = "light" }: { variant?: "light" | "dark" }) {
     >
       <input required type="tel" placeholder="Twój telefon" className={inputClass} />
       <input required type="text" placeholder="Imię" className={inputClass} />
+      <select required defaultValue="" className={inputClass}>
+        <option value="" disabled>
+          Rodzaj realizacji
+        </option>
+        <option value="kuchnia">Kuchnia</option>
+        <option value="szafa-i-garderoba">Szafa i garderoba</option>
+        <option value="lazienka">Łazienka</option>
+        <option value="rtv">RTV</option>
+        <option value="inna">Inna</option>
+      </select>
       <label className={`flex cursor-pointer items-start gap-2.5 text-xs leading-snug ${consentTextClass}`}>
         <input
           required
@@ -389,6 +427,9 @@ function SiteHeader() {
 }
 
 function Index() {
+  const [activeGalleryFilter, setActiveGalleryFilter] = useState<GalleryFilter>("kuchnie");
+  const filteredGallery = gallery.filter((item) => item.category === activeGalleryFilter);
+
   return (
     <div className="min-h-screen bg-background max-md:text-center">
       <SiteHeader />
@@ -414,11 +455,9 @@ function Index() {
               <CheckCircle2 className="h-3.5 w-3.5" /> Bezpłatna konsultacja i pomiar
             </span>
             <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-5xl">
-              Projekt i wykonanie
+              Meble na wymiar,
               <br />
-              Mebli na wymiar,
-              <br />
-              {CITY}
+              Wrocław i okolice
             </h1>
             <p className="mt-3 text-base text-white/80 md:text-lg">
               Projektujemy i wykonujemy meble dopasowane do Twojej przestrzeni, stylu i budżetu.
@@ -511,12 +550,31 @@ function Index() {
         id="realizacje"
         eyebrow="Portfolio"
         title="Nasze realizacje"
-        subtitle="Przykładowe realizacje mebli na wymiar - placeholdery demo."
+        subtitle="Wybierz typ realizacji i zobacz po 6 przykładowych kafelków ze zdjęciami."
         dark
       >
-        <MobileCarousel dark items={gallery} renderItem={(g) => <GalleryCard g={g} />} />
+        <div className="mx-auto mb-6 grid w-full max-w-md grid-cols-2 gap-2 md:mb-8 md:flex md:max-w-none md:flex-wrap md:justify-center">
+          {galleryFilters.map((filter) => {
+            const isActive = filter === activeGalleryFilter;
+            return (
+              <button
+                key={filter}
+                type="button"
+                onClick={() => setActiveGalleryFilter(filter)}
+                className={`w-full rounded-full border px-4 py-2 text-sm font-semibold transition-smooth md:w-auto ${
+                  isActive
+                    ? "border-brand-cyan bg-brand-cyan text-brand-deep"
+                    : "border-white/30 bg-white/10 text-white hover:border-brand-cyan hover:text-brand-cyan"
+                }`}
+              >
+                {galleryFilterLabels[filter]}
+              </button>
+            );
+          })}
+        </div>
+        <MobileCarousel dark items={filteredGallery} renderItem={(g) => <GalleryCard g={g} />} />
         <div className="hidden md:grid grid-cols-3 gap-5">
-          {gallery.map((g) => (
+          {filteredGallery.map((g) => (
             <GalleryCard key={g.image} g={g} />
           ))}
         </div>
