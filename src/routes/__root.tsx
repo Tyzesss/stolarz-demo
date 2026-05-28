@@ -13,7 +13,7 @@ import {
   absoluteUrl,
 } from "@/lib/site";
 
-const ogImage = absoluteUrl(SITE_OG_IMAGE);
+const ogImage = absoluteUrl(SITE_OG_IMAGE) ?? SITE_OG_IMAGE;
 
 function NotFoundComponent() {
   return (
@@ -80,6 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: SITE_TITLE },
       { name: "description", content: SITE_DESCRIPTION },
       { name: "author", content: SITE_NAME },
+      { name: "theme-color", content: "#1f1914" },
       { property: "og:title", content: SITE_TITLE },
       { property: "og:description", content: SITE_DESCRIPTION },
       { property: "og:type", content: "website" },
@@ -90,17 +91,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:description", content: SITE_DESCRIPTION },
     ];
 
-    if (ogImage) {
-      meta.push({ property: "og:image", content: ogImage });
-      meta.push({ name: "twitter:image", content: ogImage });
-    }
+    meta.push({ property: "og:image", content: ogImage });
+    meta.push({ property: "og:image:alt", content: "Stolarnia Wrocław - meble na wymiar" });
+    meta.push({ name: "twitter:image", content: ogImage });
 
     const siteUrl = absoluteUrl("/");
     if (siteUrl) {
       meta.push({ property: "og:url", content: siteUrl });
     }
 
-    return { meta };
+    return {
+      meta,
+      links: [
+        { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+        { rel: "apple-touch-icon", href: "/favicon.svg" },
+      ],
+    };
   },
   component: RootComponent,
   notFoundComponent: NotFoundComponent,

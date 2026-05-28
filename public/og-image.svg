@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Stolarnia Wroclaw - meble na wymiar">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f1914" />
+      <stop offset="55%" stop-color="#2a2119" />
+      <stop offset="100%" stop-color="#3a2a1f" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#b88233" />
+      <stop offset="100%" stop-color="#d7a24f" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect x="72" y="72" width="8" height="486" rx="4" fill="url(#accent)" />
+
+  <text x="120" y="220" fill="#f5efe7" font-size="74" font-family="Inter, Arial, sans-serif" font-weight="700">
+    Stolarnia Wroclaw
+  </text>
+  <text x="120" y="305" fill="#e2d6c8" font-size="44" font-family="Inter, Arial, sans-serif" font-weight="500">
+    Meble na wymiar
+  </text>
+  <text x="120" y="365" fill="#d7a24f" font-size="34" font-family="Inter, Arial, sans-serif" font-weight="600">
+    Kuchnie " Szafy " Garderoby " Lazienki " RTV
+  </text>
+
+  <rect x="120" y="430" width="390" height="74" rx="37" fill="url(#accent)" />
+  <text x="315" y="478" text-anchor="middle" fill="#1f1914" font-size="30" font-family="Inter, Arial, sans-serif" font-weight="700">
+    Wroclaw i okolice
+  </text>
+</svg>

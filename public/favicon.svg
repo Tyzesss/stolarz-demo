@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Stolarnia Wroclaw">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f1914" />
+      <stop offset="100%" stop-color="#34291f" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)" />
+  <path d="M16 47V17h8c8 0 12 3.7 12 10 0 4.4-2 7.5-5.8 9.1L36 47h-8.4l-4.8-9.2H24V47h-8zm8-15h3.3c3 0 4.6-1.6 4.6-4.4 0-2.9-1.7-4.2-4.8-4.2H24V32z" fill="#d7a24f" />
+  <circle cx="48" cy="45" r="5" fill="#d7a24f" />
+</svg>
