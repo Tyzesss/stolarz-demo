@@ -12,6 +12,7 @@ import {
   SITE_OG_IMAGE,
   absoluteUrl,
 } from "@/lib/site";
+import { Analytics } from "@vercel/analytics/react";
 
 const ogImage = absoluteUrl(SITE_OG_IMAGE) ?? SITE_OG_IMAGE;
 
@@ -119,6 +120,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      <Analytics />
     </QueryClientProvider>
   );
 }
