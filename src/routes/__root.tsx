@@ -4,11 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
-
-import appCss from "../styles.css?url";
 import {
   SITE_TITLE,
   SITE_DESCRIPTION,
@@ -104,35 +100,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       meta.push({ property: "og:url", content: siteUrl });
     }
 
-    return {
-      meta,
-      links: [
-        {
-          rel: "stylesheet",
-          href: appCss,
-        },
-      ],
-    };
+    return { meta };
   },
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="pl">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
