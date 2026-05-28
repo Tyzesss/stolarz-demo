@@ -136,30 +136,30 @@ const galleryFilterLabels: Record<GalleryFilter, string> = {
 };
 
 const gallery = [
-  { category: "kuchnie", image: "https://placehold.co/800x480/png?text=Kuchnia+1", alt: "Realizacja kuchni na wymiar 1" },
-  { category: "kuchnie", image: "https://placehold.co/800x480/png?text=Kuchnia+2", alt: "Realizacja kuchni na wymiar 2" },
-  { category: "kuchnie", image: "https://placehold.co/800x480/png?text=Kuchnia+3", alt: "Realizacja kuchni na wymiar 3" },
-  { category: "kuchnie", image: "https://placehold.co/800x480/png?text=Kuchnia+4", alt: "Realizacja kuchni na wymiar 4" },
-  { category: "kuchnie", image: "https://placehold.co/800x480/png?text=Kuchnia+5", alt: "Realizacja kuchni na wymiar 5" },
-  { category: "kuchnie", image: "https://placehold.co/800x480/png?text=Kuchnia+6", alt: "Realizacja kuchni na wymiar 6" },
-  { category: "szafy-i-garderoby", image: "https://placehold.co/800x480/png?text=Szafa+1", alt: "Realizacja szafy lub garderoby 1" },
-  { category: "szafy-i-garderoby", image: "https://placehold.co/800x480/png?text=Szafa+2", alt: "Realizacja szafy lub garderoby 2" },
-  { category: "szafy-i-garderoby", image: "https://placehold.co/800x480/png?text=Szafa+3", alt: "Realizacja szafy lub garderoby 3" },
-  { category: "szafy-i-garderoby", image: "https://placehold.co/800x480/png?text=Garderoba+1", alt: "Realizacja szafy lub garderoby 4" },
-  { category: "szafy-i-garderoby", image: "https://placehold.co/800x480/png?text=Garderoba+2", alt: "Realizacja szafy lub garderoby 5" },
-  { category: "szafy-i-garderoby", image: "https://placehold.co/800x480/png?text=Garderoba+3", alt: "Realizacja szafy lub garderoby 6" },
-  { category: "lazienki", image: "https://placehold.co/800x480/png?text=Lazienka+1", alt: "Realizacja mebli łazienkowych 1" },
-  { category: "lazienki", image: "https://placehold.co/800x480/png?text=Lazienka+2", alt: "Realizacja mebli łazienkowych 2" },
-  { category: "lazienki", image: "https://placehold.co/800x480/png?text=Lazienka+3", alt: "Realizacja mebli łazienkowych 3" },
-  { category: "lazienki", image: "https://placehold.co/800x480/png?text=Lazienka+4", alt: "Realizacja mebli łazienkowych 4" },
-  { category: "lazienki", image: "https://placehold.co/800x480/png?text=Lazienka+5", alt: "Realizacja mebli łazienkowych 5" },
-  { category: "lazienki", image: "https://placehold.co/800x480/png?text=Lazienka+6", alt: "Realizacja mebli łazienkowych 6" },
-  { category: "rtv", image: "https://placehold.co/800x480/png?text=RTV+1", alt: "Realizacja zabudowy RTV 1" },
-  { category: "rtv", image: "https://placehold.co/800x480/png?text=RTV+2", alt: "Realizacja zabudowy RTV 2" },
-  { category: "rtv", image: "https://placehold.co/800x480/png?text=RTV+3", alt: "Realizacja zabudowy RTV 3" },
-  { category: "rtv", image: "https://placehold.co/800x480/png?text=RTV+4", alt: "Realizacja zabudowy RTV 4" },
-  { category: "rtv", image: "https://placehold.co/800x480/png?text=RTV+5", alt: "Realizacja zabudowy RTV 5" },
-  { category: "rtv", image: "https://placehold.co/800x480/png?text=RTV+6", alt: "Realizacja zabudowy RTV 6" },
+  { category: "kuchnie", image: "/gallery/kuchnia-1.png", alt: "Realizacja kuchni na wymiar 1" },
+  { category: "kuchnie", image: "/gallery/kuchnia-2.png", alt: "Realizacja kuchni na wymiar 2" },
+  { category: "kuchnie", image: "/gallery/kuchnia-3.png", alt: "Realizacja kuchni na wymiar 3" },
+  { category: "kuchnie", image: "/gallery/kuchnia-4.png", alt: "Realizacja kuchni na wymiar 4" },
+  { category: "kuchnie", image: "/gallery/kuchnia-5.png", alt: "Realizacja kuchni na wymiar 5" },
+  { category: "kuchnie", image: "/gallery/kuchnia-6.png", alt: "Realizacja kuchni na wymiar 6" },
+  { category: "szafy-i-garderoby", image: "/gallery/szafa-1.png", alt: "Realizacja szafy lub garderoby 1" },
+  { category: "szafy-i-garderoby", image: "/gallery/szafa-2.png", alt: "Realizacja szafy lub garderoby 2" },
+  { category: "szafy-i-garderoby", image: "/gallery/szafa-3.png", alt: "Realizacja szafy lub garderoby 3" },
+  { category: "szafy-i-garderoby", image: "/gallery/szafa-4.png", alt: "Realizacja szafy lub garderoby 4" },
+  { category: "szafy-i-garderoby", image: "/gallery/szafa-5.png", alt: "Realizacja szafy lub garderoby 5" },
+  { category: "szafy-i-garderoby", image: "/gallery/szafa-6.png", alt: "Realizacja szafy lub garderoby 6" },
+  { category: "lazienki", image: "/gallery/lazienka-1.png", alt: "Realizacja mebli łazienkowych 1" },
+  { category: "lazienki", image: "/gallery/lazienka-2.png", alt: "Realizacja mebli łazienkowych 2" },
+  { category: "lazienki", image: "/gallery/lazienka-3.png", alt: "Realizacja mebli łazienkowych 3" },
+  { category: "lazienki", image: "/gallery/lazienka-4.png", alt: "Realizacja mebli łazienkowych 4" },
+  { category: "lazienki", image: "/gallery/lazienka-5.png", alt: "Realizacja mebli łazienkowych 5" },
+  { category: "lazienki", image: "/gallery/lazienka-6.png", alt: "Realizacja mebli łazienkowych 6" },
+  { category: "rtv", image: "/gallery/rtv-1.png", alt: "Realizacja zabudowy RTV 1" },
+  { category: "rtv", image: "/gallery/rtv-2.png", alt: "Realizacja zabudowy RTV 2" },
+  { category: "rtv", image: "/gallery/rtv-3.png", alt: "Realizacja zabudowy RTV 3" },
+  { category: "rtv", image: "/gallery/rtv-4.png", alt: "Realizacja zabudowy RTV 4" },
+  { category: "rtv", image: "/gallery/rtv-5.png", alt: "Realizacja zabudowy RTV 5" },
+  { category: "rtv", image: "/gallery/rtv-6.png", alt: "Realizacja zabudowy RTV 6" },
 ] as const;
 
 const faqs = [
@@ -572,8 +572,10 @@ function Index() {
             );
           })}
         </div>
-        <MobileCarousel dark items={filteredGallery} renderItem={(g) => <GalleryCard g={g} />} />
-        <div className="hidden md:grid grid-cols-3 gap-5">
+        <div key={`mobile-${activeGalleryFilter}`} className="animate-portfolio-swap">
+          <MobileCarousel dark items={filteredGallery} renderItem={(g) => <GalleryCard g={g} />} />
+        </div>
+        <div key={`desktop-${activeGalleryFilter}`} className="hidden animate-portfolio-swap md:grid grid-cols-3 gap-5">
           {filteredGallery.map((g) => (
             <GalleryCard key={g.image} g={g} />
           ))}
