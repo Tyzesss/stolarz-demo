@@ -44,11 +44,11 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const BRAND = "StolCraft";
+const BRAND = "Stolarnia Wrocław";
 const PHONE_DISPLAY = "733 200 410";
 const PHONE_HREF = "tel:+48733200410";
-const EMAIL = "biuro@stolcraft-demo.pl";
-const EMAIL_HREF = "mailto:biuro@stolcraft-demo.pl";
+const EMAIL = "biuro@stolarniawroclaw.pl";
+const EMAIL_HREF = "mailto:biuro@stolarniawroclaw.pl";
 const CITY = "Wrocław i okolice";
 const ADDRESS = "ul. Stolarska 12, Wrocław";
 const HOURS = "Pn - Pt: 8:00 - 17:00";
@@ -125,7 +125,7 @@ const reviews = [
   { name: "Karolina M.", text: "Pełna profesjonalność od pomiaru do montażu. Meble wyglądają świetnie." },
 ];
 
-const galleryFilters = ["kuchnie", "szafy-i-garderoby", "lazienki", "rtv"] as const;
+const galleryFilters = ["kuchnie", "lazienki", "szafy-i-garderoby", "rtv"] as const;
 type GalleryFilter = (typeof galleryFilters)[number];
 
 const galleryFilterLabels: Record<GalleryFilter, string> = {
@@ -269,7 +269,7 @@ function WhyCard({ w, dark = false }: { w: (typeof whyUs)[number]; dark?: boolea
   const Icon = w.icon;
   if (dark) {
     return (
-      <div className="h-full rounded-xl border border-white/10 bg-white/5 p-3 text-center shadow-card backdrop-blur-md transition-spring max-md:shadow-sm md:rounded-2xl md:p-5 md:hover:-translate-y-1 md:hover:shadow-cool">
+      <div className="h-full rounded-xl border border-white/10 bg-white/5 px-1 py-3 text-center shadow-card backdrop-blur-md transition-spring max-md:shadow-sm md:rounded-2xl md:p-5 md:hover:-translate-y-1 md:hover:shadow-cool">
         <div className="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-accent text-primary-foreground shadow-glow md:mb-3 md:h-14 md:w-14">
           <Icon className="h-5 w-5 md:h-7 md:w-7" />
         </div>
@@ -508,7 +508,7 @@ function Index() {
         subtitle="Rzemiosło, estetyka i funkcjonalność w jednej realizacji."
         dark
       >
-        <div className="grid grid-cols-2 gap-2 md:hidden">
+        <div className="mx-auto grid max-w-[21rem] grid-cols-2 gap-3 md:hidden">
           {whyUs.map((w) => (
             <WhyCard key={w.title} w={w} dark />
           ))}
@@ -553,7 +553,7 @@ function Index() {
         subtitle="Wybierz typ realizacji i zobacz po 6 przykładowych kafelków ze zdjęciami."
         dark
       >
-        <div className="mx-auto mb-6 grid w-full max-w-md grid-cols-2 gap-2 md:mb-8 md:flex md:max-w-none md:flex-wrap md:justify-center">
+        <div className="mx-auto mb-6 flex max-w-md flex-wrap justify-center gap-2.5 px-2 md:mb-8 md:max-w-none md:px-0">
           {galleryFilters.map((filter) => {
             const isActive = filter === activeGalleryFilter;
             return (
@@ -561,7 +561,7 @@ function Index() {
                 key={filter}
                 type="button"
                 onClick={() => setActiveGalleryFilter(filter)}
-                className={`w-full rounded-full border px-4 py-2 text-sm font-semibold transition-smooth md:w-auto ${
+                className={`rounded-full border px-4 py-2 text-sm font-semibold transition-smooth ${
                   isActive
                     ? "border-brand-cyan bg-brand-cyan text-brand-deep"
                     : "border-white/30 bg-white/10 text-white hover:border-brand-cyan hover:text-brand-cyan"
